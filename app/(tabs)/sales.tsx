@@ -19,13 +19,16 @@ export default function Sales() {
 
     return (
         <View style={styles.container}>
-            <Text >WebAuctions</Text>
+            <Text style={{color: "#fff"}}>WebAuctions</Text>
             <TextInput
                 style={styles.input}
                 onChangeText={onChangeText}
                 value={text}
                 onFocus={() => onChangeText('')}
             />
+            <AuctionItem name="Hello"/>
+            <AuctionItem name="Hello"/>
+            <AuctionItem name="Hello"/>
         </View>
     );
 }
@@ -35,12 +38,15 @@ const styles = StyleSheet.create({
         flex: 1,
         alignItems: 'center',
         paddingTop: '5%',
+        backgroundColor: '#333',
     },
     input: {
         height: 40,
         width: '90%',
         margin: 12,
         borderWidth: 1,
+        borderColor: '#fff',
         padding: 10,
+        color: '#fff',
     },
 });

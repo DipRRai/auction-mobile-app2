@@ -16,7 +16,8 @@ const styles = StyleSheet.create({
     listing: {
         backgroundColor: '#121110',
         width: '100%',
-        height: 140,
+        height: 170,
         marginBottom: 10,
+        textAlign: 'center',
     }
 })
