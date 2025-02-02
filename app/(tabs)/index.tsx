@@ -1,4 +1,12 @@
-import { FlatList, StyleSheet, View, TextInput, Text, Button } from "react-native";
+import {
+  FlatList,
+  StyleSheet,
+  View,
+  TextInput,
+  Text,
+  StatusBar,
+  Button,
+} from "react-native";
 import { useState, useEffect } from "react";
 
 //CUSTOM IMPORTS
@@ -22,13 +30,20 @@ export default function Sales() {
     fetchData();
   }, []);
 
-  useEffect(() => {
-    if (products !== null) {
-      console.log(products);
-    }
-  }, [products]);
-
-  function parseData() {}
+  const DATA = [
+    {
+      id: "bd7acbea-c1b1-46c2-aed5-3ad53abb28ba",
+      title: "First Item",
+    },
+    {
+      id: "3ac68afc-c605-48d3-a4f8-fbd91aa97f63",
+      title: "Second Item",
+    },
+    {
+      id: "58694a0f-3da1-471f-bd96-145571e29d72",
+      title: "Third Item",
+    },
+  ];
 
   return (
     <View style={styles.container}>
@@ -39,15 +54,12 @@ export default function Sales() {
         value={text}
         onFocus={() => onChangeText("")}
       />
-      <Button
-        onPress={fetchData}
-        title="Call Database"
-        color="#841584"
-        accessibilityLabel="Learn more about this purple button"
+      <Button onPress={fetchData} title="Call Database" color="#841584" />
+      <FlatList
+        style={{ width: "100%" }}
+        data={products}
+        renderItem={({ item }) => <AuctionItem name={item.name} />}
       />
-      <AuctionItem name="Hello" />
-      <AuctionItem name="Hello" />
-      <AuctionItem name="Hello" />
     </View>
   );
 }
@@ -67,5 +79,14 @@ const styles = StyleSheet.create({
     borderColor: "#fff",
     padding: 10,
     color: "#fff",
+  },
+  item: {
+    backgroundColor: "#f9c2ff",
+    padding: 20,
+    marginVertical: 8,
+    marginHorizontal: 16,
+  },
+  title: {
+    fontSize: 32,
   },
 });
